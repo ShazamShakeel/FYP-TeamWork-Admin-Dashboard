@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Login from "./Pages/Login/Login";
+import Dashboard from "./Pages/Dashboard/Dashboard"
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Open Sans',
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  }
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path='/' exact>
+              <Login/>
+            </Route>
+            <Route path='/dashboard' exact>
+              <Dashboard />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
