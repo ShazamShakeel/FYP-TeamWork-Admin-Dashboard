@@ -35,7 +35,7 @@ export default function Navbar() {
   return (
     <AppBar position="fixed" elevation={0} className={classes.appBar}>
       <Toolbar>
-        <Typography>{format(new Date(), "do MMMM Y")}</Typography>
+        <Typography>{format(new Date(), "h:mm a, dd/MM/Y")}</Typography>
         <Typography
           className={classes.dashboardText}
           variant="h5"

@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import { AssignmentTurnedIn, Dashboard, FeaturedPlayList, Group, Settings } from "@material-ui/icons";
-import { useHistory, useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../Assets/Logo.svg";
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => {
@@ -73,8 +73,8 @@ export default function Sidebar() {
       icon: <Group color="primary" />,
     },
     {
-      text: "Settings",
-      path: "/dashboard/setting",
+      text: "Account",
+      path: "/dashboard/account",
       icon: <Settings color="primary"/>,
     },
   ];

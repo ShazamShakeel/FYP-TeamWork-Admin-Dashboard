@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import { createTheme, ThemeProvider, makeStyles } from "@material-ui/core";
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 const theme = createTheme({
   typography: {
@@ -29,14 +30,18 @@ const useStyles = makeStyles((theme) => {
 
 function App() {
   const classes = useStyles();
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <div className="App">
+
           <Switch>
+
             <Route path="/" exact>
               <Login />
             </Route>
+
             <Route path="/dashboard" exact>
               <div className={classes.root}>
                 <Sidebar />
@@ -44,10 +49,11 @@ function App() {
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
-                  Dashboard Content
+                  <Dashboard/>
                 </div>
               </div>
             </Route>
+
             <Route path="/dashboard/tasks" exact>
               <div className={classes.root}>
                 <Sidebar />
@@ -59,6 +65,7 @@ function App() {
                 </div>
               </div>
             </Route>
+
             <Route path="/dashboard/projects" exact>
               <div className={classes.root}>
                 <Sidebar />
@@ -70,6 +77,7 @@ function App() {
                 </div>
               </div>
             </Route>
+
             <Route path="/dashboard/teams" exact>
               <div className={classes.root}>
                 <Sidebar />
@@ -81,7 +89,8 @@ function App() {
                 </div>
               </div>
             </Route>
-            <Route path="/dashboard/setting" exact>
+
+            <Route path="/dashboard/account" exact>
               <div className={classes.root}>
                 <Sidebar />
                 <Navbar />
@@ -92,10 +101,13 @@ function App() {
                 </div>
               </div>
             </Route>
+
             <Route path="/*">
               <p>Page Not Found !</p>
             </Route>
+
           </Switch>
+          
         </div>
       </Router>
     </ThemeProvider>
