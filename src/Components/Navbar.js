@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => {
     appBar: {
       width: `calc(100% - ${drawerWidth}px)`,
       color: "black",
-      backgroundColor: "white",
+      background: 'white'
     },
     avatar: {
       marginLeft: theme.spacing(4),

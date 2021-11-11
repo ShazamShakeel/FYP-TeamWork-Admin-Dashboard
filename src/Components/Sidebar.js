@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => {
       marginTop: theme.spacing(1)
     },
     active: {
-      background: "#f9f9f9",
+      background: "#f8f9fd",
     },
     logoImage: {
         margin: 'auto',

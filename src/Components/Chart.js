@@ -4,22 +4,22 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { format, parseISO } from 'date-fns';
 const useStyles = makeStyles({
     chartContainer: {
-        marginTop: 60,
-        display: 'flex',
-        justifyContent: 'center'
+      marginTop: 60,
+      display: 'flex',
+      justifyContent: 'center',
     },
     tooltip: {
-        borderRadius: '0.25rem',
-        background: '#26313c',
-        color: '#fff',
-        padding: '1rem',
-        boxShadow: '15px 30px 40px 5px rgba(0, 0, 0, 0.5)',
-        textAlign: 'center'
-      }
+      borderRadius: '0.25rem',
+      background: '#f8f9fd',
+      color: 'black',
+      padding: '1rem',
+      boxShadow: '15px 30px 40px 5px rgba(0, 0, 0, 0.5)',
+      textAlign: 'center'
+    }
 })
 
 
-export default function UsersChart({data, dataKey}) {
+export default function Chart({data, dataKey}) {
     const classes = useStyles();
     function CustomTooltip ({active, payload, label}){
         if (active) {
@@ -34,7 +34,7 @@ export default function UsersChart({data, dataKey}) {
     }
     return (
       <div className={classes.chartContainer}>
-        <ResponsiveContainer width="90%" height={500}>
+        <ResponsiveContainer width="90%" height={500} >
           <AreaChart
             data={data}
             margin={{
@@ -47,15 +47,15 @@ export default function UsersChart({data, dataKey}) {
 
             <defs>
               <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3f50b5" stopOpacity={0.4} />
-                <stop offset="75%" stopColor="#3f50b5" stopOpacity={0.05} />
+                <stop offset="0%" stopColor="#2f80ed" stopOpacity={0.4} />
+                <stop offset="75%" stopColor="#2f80ed" stopOpacity={0.05} />
               </linearGradient>
             </defs>
 
             <Area
                 type="monotone"
                 dataKey={dataKey}
-                stroke="#3f50b5"
+                stroke="#2f80ed"
                 fill="url(#color)"
             />
 
@@ -74,7 +74,7 @@ export default function UsersChart({data, dataKey}) {
             />
 
             <YAxis
-              dataKey="Users"
+              dataKey={dataKey}
               axisLine={false}
               tickLine={false}
               tickCount={8}

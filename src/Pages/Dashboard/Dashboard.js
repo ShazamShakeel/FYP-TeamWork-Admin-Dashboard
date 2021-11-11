@@ -14,7 +14,7 @@ import {
 } from "@material-ui/icons";
 import React from "react";
 import { userData } from "../../Data/data";
-import UsersChart from "../../Components/UsersChart";
+import Chart from "../../Components/Chart";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -44,7 +44,7 @@ export default function Dashboard() {
       <Container>
         <Grid container spacing={2}>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={4}>
+            <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <AssignmentTurnedIn fontSize="large" color="primary"/>
                 <Typography color="textPrimary">Users</Typography>
@@ -55,7 +55,7 @@ export default function Dashboard() {
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={4}>
+            <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <AssignmentInd fontSize="large" color="primary"/>
                 <Typography color="textPrimary">Tasks</Typography>
@@ -66,7 +66,7 @@ export default function Dashboard() {
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={4}>
+            <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <FeaturedPlayList fontSize="large" color="primary"/>
                 <Typography color="textPrimary">Projects</Typography>
@@ -77,7 +77,7 @@ export default function Dashboard() {
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={4}>
+            <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <Group fontSize="large" color="primary"/>
                 <Typography color="textPrimary">Teams</Typography>
@@ -90,7 +90,7 @@ export default function Dashboard() {
         </Grid>
       </Container>
       <Divider className={classes.dividerLine}/>
-      <UsersChart data={userData} dataKey="Users" />
+      <Chart data={userData} dataKey="Users" />
     </div>
   );
 }
