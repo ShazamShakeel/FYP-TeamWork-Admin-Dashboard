@@ -4,7 +4,6 @@ import {
   Toolbar,
   Typography,
   makeStyles,
-  Avatar,
 } from "@material-ui/core";
 import format from "date-fns/format";
 
@@ -14,38 +13,27 @@ const useStyles = makeStyles((theme) => {
     appBar: {
       width: `calc(100% - ${drawerWidth}px)`,
       color: "black",
-      background: 'white'
-    },
-    avatar: {
-      marginLeft: theme.spacing(4),
+      background: "white",
     },
     dashboardText: {
       flexGrow: 1,
       textAlign: "center",
     },
-    flex: {
-      display: "flex",
-      alignItems: "center",
-    },
   };
 });
 
-export default function Navbar() {
+export default function Navbar({name}) {
   const classes = useStyles();
   return (
     <AppBar position="fixed" elevation={0} className={classes.appBar}>
       <Toolbar>
-        <Typography>{format(new Date(), "h:mm a, dd/MM/Y")}</Typography>
-        <Typography
-          className={classes.dashboardText}
-          variant="h5"
-        >
-          Dashboard
+        <Typography>Wellcome, Shazam !</Typography>
+
+        <Typography className={classes.dashboardText} variant="h5">
+          {name}
         </Typography>
-        <div className={classes.flex}>
-          <Typography>Masoom</Typography>
-          <Avatar src="/Admin Photo.jpg" className={classes.avatar} />
-        </div>
+
+        <Typography>{format(new Date(), "h:mm a, dd/MM/Y")}</Typography>
       </Toolbar>
     </AppBar>
   );

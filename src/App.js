@@ -55,7 +55,7 @@ function App() {
             <Route path="/dashboard" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar />
+                <Navbar name={"Dashboard"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
@@ -67,7 +67,7 @@ function App() {
             <Route path="/dashboard/tasks" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar />
+                <Navbar name={"Tasks"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
@@ -79,7 +79,7 @@ function App() {
             <Route path="/dashboard/projects" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar />
+                <Navbar name={"Projects"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
@@ -91,7 +91,7 @@ function App() {
             <Route path="/dashboard/teams" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar />
+                <Navbar name={"Teams"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
@@ -103,7 +103,7 @@ function App() {
             <Route path="/dashboard/account" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar />
+                <Navbar name={"Account"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
