@@ -58,13 +58,13 @@ export default function Sidebar() {
       icon: <Dashboard color="primary" />,
     },
     {
-      text: "Tasks",
-      path: "/dashboard/tasks",
+      text: "Cards",
+      path: "/dashboard/cards",
       icon: <AssignmentTurnedIn color="primary" />,
     },
     {
-      text: "Projects",
-      path: "/dashboard/projects",
+      text: "Boards",
+      path: "/dashboard/boards",
       icon: <FeaturedPlayList color="primary" />,
     },
     {

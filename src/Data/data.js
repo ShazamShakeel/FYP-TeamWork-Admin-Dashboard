@@ -6,18 +6,18 @@ for (let num = 30; num >= 0; num--) {
         Users: Math.floor(Math.random() * 100)
     })
 }
-export const TaskData = [];
+export const CardData = [];
 for (let num = 30; num >= 0; num--) {
-    TaskData.push({
+    CardData.push({
         date: subDays(new Date(), num).toISOString().substr(0, 10),
-        Tasks: Math.floor(Math.random() * 100)
+        Cards: Math.floor(Math.random() * 100)
     })
 }
-export const ProjectData = [];
+export const BoardData = [];
 for (let num = 30; num >= 0; num--) {
-    ProjectData.push({
+    BoardData.push({
         date: subDays(new Date(), num).toISOString().substr(0, 10),
-        Projects: Math.floor(Math.random() * 100)
+        Boards: Math.floor(Math.random() * 100)
     })
 }
 export const TeamData = [];

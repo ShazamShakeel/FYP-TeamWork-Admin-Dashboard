@@ -8,7 +8,7 @@ import {
   } from "@material-ui/core";
   import { AssignmentInd } from "@material-ui/icons";
   import React from "react";
-  import { TaskData } from "../../Data/data";
+  import { CardData } from "../../Data/data";
   import Chart from "../../Components/Chart"
   
   const useStyles = makeStyles((theme) => {
@@ -36,7 +36,7 @@ import {
     };
   });
   
-  export default function TaskPage() {
+  export default function CardPage() {
     const classes = useStyles();
     return (
       <div>
@@ -46,7 +46,7 @@ import {
               <Card className={classes.cardContainer} elevation={3}>
                 <div className={classes.header}>
                   <AssignmentInd fontSize="large" color="primary"/>
-                  <Typography color="textPrimary">Tasks</Typography>
+                  <Typography color="textPrimary">Cards</Typography>
                 </div>
                 <Typography variant="h3" className={classes.data} color="primary">
                   250
@@ -56,7 +56,7 @@ import {
           </Grid>
         </Container>
         <Divider className={classes.dividerLine}/>
-        <Chart data={TaskData} dataKey="Tasks" />
+        <Chart data={CardData} dataKey="Cards" />
       </div>
     );
   }

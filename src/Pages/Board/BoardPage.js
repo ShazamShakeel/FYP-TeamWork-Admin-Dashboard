@@ -8,7 +8,7 @@ import {
   } from "@material-ui/core";
   import { FeaturedPlayList } from "@material-ui/icons";
   import React from "react";
-  import { ProjectData } from "../../Data/data";
+  import { BoardData } from "../../Data/data";
   import Chart from "../../Components/Chart"
   
   const useStyles = makeStyles((theme) => {
@@ -46,7 +46,7 @@ import {
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <FeaturedPlayList fontSize="large" color="primary"/>
-                <Typography color="textPrimary">Projects</Typography>
+                <Typography color="textPrimary">Boards</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
                 37
@@ -56,7 +56,7 @@ import {
           </Grid>
         </Container>
         <Divider className={classes.dividerLine}/>
-        <Chart data={ProjectData} dataKey="Projects" />
+        <Chart data={BoardData} dataKey="Boards" />
       </div>
     );
   }

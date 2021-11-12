@@ -4,8 +4,8 @@ import { createTheme, ThemeProvider, makeStyles } from "@material-ui/core";
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import TaskPage from "./Pages/Task/TaskPage"
-import ProjectPage from "./Pages/Project/ProjectPage";
+import CardPage from "./Pages/Card/CardPage"
+import BoardPage from "./Pages/Board/BoardPage";
 import TeamPage from "./Pages/Team/TeamPage";
 import Account from "./Pages/Account/Account";
 
@@ -64,26 +64,26 @@ function App() {
               </div>
             </Route>
 
-            <Route path="/dashboard/tasks" exact>
+            <Route path="/dashboard/cards" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar name={"Tasks"}/>
+                <Navbar name={"Cards"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
-                  <TaskPage/>
+                  <CardPage/>
                 </div>
               </div>
             </Route>
 
-            <Route path="/dashboard/projects" exact>
+            <Route path="/dashboard/boards" exact>
               <div className={classes.root}>
                 <Sidebar />
-                <Navbar name={"Projects"}/>
+                <Navbar name={"Boards"}/>
                 <div className={classes.page}>
                   {/* main content */}
                   <div className={classes.toolBar}></div>
-                  <ProjectPage/>
+                  <BoardPage/>
                 </div>
               </div>
             </Route>

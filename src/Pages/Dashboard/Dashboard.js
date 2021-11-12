@@ -58,7 +58,7 @@ export default function Dashboard() {
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <AssignmentInd fontSize="large" color="primary"/>
-                <Typography color="textPrimary">Tasks</Typography>
+                <Typography color="textPrimary">Cards</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
                 250
@@ -69,7 +69,7 @@ export default function Dashboard() {
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
                 <FeaturedPlayList fontSize="large" color="primary"/>
-                <Typography color="textPrimary">Projects</Typography>
+                <Typography color="textPrimary">Boards</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
                 37
