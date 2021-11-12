@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
+import http from '../../utils/api';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     marginTop: 20,
-    height: theme.mixins.toolbar
+    height: theme.mixins.toolbar,
   },
   form: {
     width: "100%",
@@ -36,7 +37,7 @@ export default function Login() {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     if (email === "") {
       setEmailError(true);
@@ -46,26 +47,25 @@ export default function Login() {
     }
     if (email && password) {
       console.log(email, password);
-      history.push("/dashboard");
+      http
+        .post("/auth/login", { email, password })
+        .then((result) => {
+          localStorage.setItem("tm_auth_token", result.data.token);
+          history.push("/dashboard")
+        })
+        .catch((err) => {
+          console.error(err.response);
+        });
     }
-
-    // fetch('http://localhost:3000/user',{
-    //   method: 'POST',
-    //   headers: {"Content-Type":"application/json"},
-    //   body: JSON.stringify({
-    //     email: {email},
-    //     password: {password}
-    //   })
-    // })
   };
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.logo}>
-          <img src={Logo} alt="TeamWork Logo"/>
+        <img src={Logo} alt="TeamWork Logo" />
       </div>
 
       <CssBaseline />
-        
+
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
           Log In
