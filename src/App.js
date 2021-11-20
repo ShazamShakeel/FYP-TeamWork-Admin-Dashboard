@@ -7,7 +7,6 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import CardPage from "./Pages/Card/CardPage"
 import BoardPage from "./Pages/Board/BoardPage";
 import TeamPage from "./Pages/Team/TeamPage";
-import Account from "./Pages/Account/Account";
 
 const theme = createTheme({
   palette: {
@@ -97,18 +96,6 @@ function App() {
                   {/* main content */}
                   <div className={classes.toolBar}></div>
                   <TeamPage/>
-                </div>
-              </div>
-            </Route>
-
-            <Route path="/dashboard/account" exact>
-              <div className={classes.root}>
-                <Sidebar />
-                <Navbar name={"Account"}/>
-                <div className={classes.page}>
-                  {/* main content */}
-                  <div className={classes.toolBar}></div>
-                  <Account/>
                 </div>
               </div>
             </Route>

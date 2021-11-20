@@ -8,7 +8,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
-import { AssignmentTurnedIn, Dashboard, FeaturedPlayList, Group, Settings } from "@material-ui/icons";
+import { AssignmentTurnedIn, Dashboard, FeaturedPlayList, Group } from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router-dom";
 import Logo from "../Assets/Logo.svg";
 const drawerWidth = 250;
@@ -72,11 +72,6 @@ export default function Sidebar() {
       path: "/dashboard/teams",
       icon: <Group color="primary" />,
     },
-    {
-      text: "Account",
-      path: "/dashboard/account",
-      icon: <Settings color="primary"/>,
-    },
   ];
   return (
     <div>
@@ -90,7 +85,7 @@ export default function Sidebar() {
           <div className={classes.logo}>
             <img src={Logo} alt="TeamWork Logo"/>
           </div>
-          <Avatar src="/Admin Photo.jpg" className={classes.logoImage}/>
+          <Avatar src="/Admin Photo.png" className={classes.logoImage}/>
         </div>
         <List className={classes.drawerItemsMargin}>
           {menuItems.map((item) => (

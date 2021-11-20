@@ -27,7 +27,7 @@ export default function Navbar({name}) {
   return (
     <AppBar position="fixed" elevation={0} className={classes.appBar}>
       <Toolbar>
-        <Typography>Wellcome, Shazam !</Typography>
+        <Typography>Wellcome, Admin !</Typography>
 
         <Typography className={classes.dashboardText} variant="h5">
           {name}
