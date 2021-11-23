@@ -17,7 +17,7 @@ import {
             display: 'flex',
             justifyContent: 'center'
         },
-      cardContainer: {
+      taskContainer: {
         padding: 20,
         display: "flex",
       },
@@ -43,7 +43,7 @@ import {
         <Container>
           <Grid container className={classes.gridContainer}>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={3}>
+            <Card className={classes.taskContainer} elevation={3}>
               <div className={classes.header}>
                 <Group fontSize="large" color="primary"/>
                 <Typography color="textPrimary">Teams</Typography>

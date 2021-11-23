@@ -20,7 +20,7 @@ import UserCards from "../../Components/UserCards";
 
 const useStyles = makeStyles((theme) => {
   return {
-    cardContainer: {
+    taskContainer: {
       padding: 20,
       display: "flex",
     },
@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme) => {
 export default function Dashboard() {
   const classes = useStyles();
   const [users, setUsers] = useState(null);
-  const [cards, setCards] = useState(null);
-  const [boards, setBoards] = useState(null);
+  const [tasks, setTasks] = useState(null);
+  const [projects, setProjects] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/dashboard")
@@ -57,22 +57,22 @@ export default function Dashboard() {
       .catch((err) => {
         console.log(err.message);
       });
-    fetch("http://localhost:5000/dashboard/cards")
+    fetch("http://localhost:5000/dashboard/tasks")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        setCards(data.data);
+        setTasks(data.data);
       })
       .catch((err) => {
         console.log(err.message);
       });
-    fetch("http://localhost:5000/dashboard/boards")
+    fetch("http://localhost:5000/dashboard/projects")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        setBoards(data.data);
+        setProjects(data.data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -83,7 +83,7 @@ export default function Dashboard() {
       <Container>
         <Grid container spacing={2}>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={3}>
+            <Card className={classes.taskContainer} elevation={3}>
               <div className={classes.header}>
                 <AssignmentInd fontSize="large" color="primary" />
                 <Typography color="textPrimary">Users</Typography>
@@ -94,29 +94,29 @@ export default function Dashboard() {
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={3}>
+            <Card className={classes.taskContainer} elevation={3}>
               <div className={classes.header}>
                 <AssignmentTurnedIn fontSize="large" color="primary" />
-                <Typography color="textPrimary">Cards</Typography>
+                <Typography color="textPrimary">Tasks</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
-                {cards && cards.length}
+                {tasks && tasks.length}
               </Typography>
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={3}>
+            <Card className={classes.taskContainer} elevation={3}>
               <div className={classes.header}>
                 <FeaturedPlayList fontSize="large" color="primary" />
-                <Typography color="textPrimary">Boards</Typography>
+                <Typography color="textPrimary">Projects</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
-                {boards && boards.length}
+                {projects && projects.length}
               </Typography>
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={3}>
+            <Card className={classes.taskContainer} elevation={3}>
               <div className={classes.header}>
                 <Group fontSize="large" color="primary" />
                 <Typography color="textPrimary">Teams</Typography>

@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     gridContainer: {
       marginTop: 20
     },
-    cardContainer: {
+    taskContainer: {
         display: 'flex',
         padding: 20,
         justifyContent: "space-between",
@@ -21,22 +21,22 @@ const useStyles = makeStyles({
       textTransform: 'capitalize'
     }
 });
-export default function CardsOfCards({ cards }) {
+export default function TaskCards({ tasks }) {
   const classes = useStyles();
   var keyValue = 1;
   return (
     <div>
       <Grid container className={classes.gridContainer}>
-      {cards.map((card) => (
+      {tasks.map((task) => (
         <Grid item lg={12} md={12} sm={12} xs={12} key={keyValue+=1}>
-          <Card className={classes.cardContainer} elevation={3}>
+          <Card className={classes.taskContainer} elevation={3}>
             <div className={classes.header}>
               <AssignmentTurnedIn fontSize="large" color="primary" />
               <Typography color="textPrimary" className={classes.typography}>
-                {card.title}
+                {task.title}
               </Typography>
             </div>
-            <Typography>Created at:  {card.createdAt}</Typography>
+            <Typography>Created at:  {task.createdAt}</Typography>
           </Card>
         </Grid>
       ))}

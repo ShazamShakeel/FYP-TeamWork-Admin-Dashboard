@@ -9,8 +9,8 @@ import {
 } from "@material-ui/core";
 import { AssignmentTurnedIn } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
-import CardsOfCards from "../../Components/CardsOfCards";
-// import { CardData } from "../../Data/data";
+import TaskCards from "../../Components/TaskCards";
+// import { TaskData } from "../../Data/data";
 // import Chart from "../../Components/Chart";
 
 const useStyles = makeStyles((theme) => {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
       justifyContent: "center",
     },
-    cardContainer: {
+    taskContainer: {
       padding: 20,
       display: "flex",
     },
@@ -38,17 +38,17 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-export default function CardPage() {
+export default function TaskPage() {
   const classes = useStyles();
-  const [cards, setCards] = useState(null);
+  const [tasks, setTasks] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/dashboard/cards")
+    fetch("http://localhost:5000/dashboard/tasks")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        setCards(data.data);
+        setTasks(data.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -60,13 +60,13 @@ export default function CardPage() {
       <Container>
         <Grid container className={classes.gridContainer}>
           <Grid item lg={3} md={6} sm={12} xs={12}>
-            <Card className={classes.cardContainer} elevation={3}>
+            <Card className={classes.taskContainer} elevation={3}>
               <div className={classes.header}>
                 <AssignmentTurnedIn fontSize="large" color="primary" />
-                <Typography color="textPrimary">Cards</Typography>
+                <Typography color="textPrimary">Tasks</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
-              {cards && cards.length}
+              {tasks && tasks.length}
               </Typography>
             </Card>
           </Grid>
@@ -75,11 +75,11 @@ export default function CardPage() {
       <Divider className={classes.dividerLine} />
       <Typography color='primary'>
         <Box textAlign="center" fontSize='h4.fontSize' m={2}>
-          Cards List
+          Tasks List
         </Box>
       </Typography>
       <Divider/>
-      {/* <Chart data={CardData} dataKey="Cards" /> */}
+      {/* <Chart data={TaskData} dataKey="Tasks" /> */}
       {loading && (
         <Typography color="primary">
           <Box textAlign="center" fontSize="h6.fontSize" m={2}>
@@ -87,7 +87,7 @@ export default function CardPage() {
           </Box>
         </Typography>
       )}
-      {cards && <CardsOfCards cards={cards} />}
+      {tasks && <TaskCards tasks={tasks} />}
     </div>
   );
 }

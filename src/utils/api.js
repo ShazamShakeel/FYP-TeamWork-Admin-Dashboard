@@ -7,8 +7,8 @@ const http = axios.create({
 http.interceptors.request.use(
   function (config) {
     // Do something before request is sent
-    if (!!localStorage.getItem("tm_auth_token")) {
-      config.headers.Authorization = localStorage.getItem("tm_auth_token");
+    if (!!localStorage.getItem("TeamWork_auth_token")) {
+      config.headers.Authorization = localStorage.getItem("TeamWork_auth_token");
     }
     return config;
   },

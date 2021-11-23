@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     gridContainer: {
       marginTop: 20
     },
-    cardContainer: {
+    taskContainer: {
         display: 'flex',
         padding: 20,
         justifyContent: "space-between",
@@ -29,7 +29,7 @@ export default function UserCards({ users }) {
       <Grid container className={classes.gridContainer}>
       {users.map((user) => (
         <Grid item lg={12} md={12} sm={12} xs={12} key={keyValue+=1}>
-          <Card className={classes.cardContainer} elevation={3}>
+          <Card className={classes.taskContainer} elevation={3}>
             <div className={classes.header}>
               <AssignmentInd fontSize="large" color="primary" />
               <Typography color="textPrimary" className={classes.typography}>
