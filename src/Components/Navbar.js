@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => {
       flexGrow: 1,
       textAlign: "center",
     },
+    date: {
+      opacity: 0
+    }
   };
 });
 
@@ -33,7 +36,7 @@ export default function Navbar({name}) {
           {name}
         </Typography>
 
-        <Typography>{format(new Date(), "h:mm a, dd/MM/Y")}</Typography>
+        <Typography className={classes.date}>{format(new Date(), "h:mm a, dd/MM/Y")}</Typography>
       </Toolbar>
     </AppBar>
   );

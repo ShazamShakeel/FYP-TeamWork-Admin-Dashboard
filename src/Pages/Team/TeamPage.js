@@ -8,8 +8,8 @@ import {
   } from "@material-ui/core";
   import { Group } from "@material-ui/icons";
   import React from "react";
-  import { TeamData } from "../../Data/data";
-  import Chart from "../../Components/Chart"
+  // import { TeamData } from "../../Data/data";
+  // import Chart from "../../Components/Chart"
   
   const useStyles = makeStyles((theme) => {
     return {
@@ -56,7 +56,7 @@ import {
           </Grid>
         </Container>
         <Divider className={classes.dividerLine}/>
-        <Chart data={TeamData} dataKey="Teams" />
+        {/* <Chart data={TeamData} dataKey="Teams" /> */}
       </div>
     );
   }

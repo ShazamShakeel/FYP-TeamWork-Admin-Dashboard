@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   Container,
   Divider,
@@ -12,9 +13,10 @@ import {
   FeaturedPlayList,
   Group,
 } from "@material-ui/icons";
-import React from "react";
-import { userData } from "../../Data/data";
-import Chart from "../../Components/Chart";
+import React, { useEffect, useState } from "react";
+import UserCards from "../../Components/UserCards";
+// import { userData } from "../../Data/data";
+// import Chart from "../../Components/Chart";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -32,13 +34,50 @@ const useStyles = makeStyles((theme) => {
       margin: "auto",
     },
     dividerLine: {
-      marginTop: 20
-    }
+      marginTop: 20,
+    },
   };
 });
 
 export default function Dashboard() {
   const classes = useStyles();
+  const [users, setUsers] = useState(null);
+  const [cards, setCards] = useState(null);
+  const [boards, setBoards] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("http://localhost:5000/dashboard")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setUsers(data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    fetch("http://localhost:5000/dashboard/cards")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setCards(data.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    fetch("http://localhost:5000/dashboard/boards")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setBoards(data.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
   return (
     <div>
       <Container>
@@ -46,40 +85,40 @@ export default function Dashboard() {
           <Grid item lg={3} md={6} sm={12} xs={12}>
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
-                <AssignmentTurnedIn fontSize="large" color="primary"/>
+                <AssignmentInd fontSize="large" color="primary" />
                 <Typography color="textPrimary">Users</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
-                1,000
+                {users && users.length}
               </Typography>
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
-                <AssignmentInd fontSize="large" color="primary"/>
+                <AssignmentTurnedIn fontSize="large" color="primary" />
                 <Typography color="textPrimary">Cards</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
-                250
+                {cards && cards.length}
               </Typography>
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
-                <FeaturedPlayList fontSize="large" color="primary"/>
+                <FeaturedPlayList fontSize="large" color="primary" />
                 <Typography color="textPrimary">Boards</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
-                37
+                {boards && boards.length}
               </Typography>
             </Card>
           </Grid>
           <Grid item lg={3} md={6} sm={12} xs={12}>
             <Card className={classes.cardContainer} elevation={3}>
               <div className={classes.header}>
-                <Group fontSize="large" color="primary"/>
+                <Group fontSize="large" color="primary" />
                 <Typography color="textPrimary">Teams</Typography>
               </div>
               <Typography variant="h3" className={classes.data} color="primary">
@@ -89,8 +128,22 @@ export default function Dashboard() {
           </Grid>
         </Grid>
       </Container>
-      <Divider className={classes.dividerLine}/>
-      <Chart data={userData} dataKey="Users" />
+      <Divider className={classes.dividerLine} />
+      <Typography color="primary">
+        <Box textAlign="center" fontSize="h4.fontSize" m={2}>
+          Users List
+        </Box>
+      </Typography>
+      <Divider />
+      {/* <Chart data={userData} dataKey="Users" /> */}
+      {loading && (
+        <Typography color="primary">
+          <Box textAlign="center" fontSize="h6.fontSize" m={2}>
+            Loading
+          </Box>
+        </Typography>
+      )}
+      {users && <UserCards users={users} />}
     </div>
   );
 }
